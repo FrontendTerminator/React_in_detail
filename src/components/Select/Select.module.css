@@ -1,0 +1,25 @@
+.input {
+    border-color: black;
+    border-style: solid;
+    height: 20px;
+    width: 80px;
+    text-align: center;
+}
+
+.input2 {
+    border-color: black;
+    border-style: solid;
+    height: 20px;
+    width: 80px;
+    text-align: center;
+    background-color: #1ea7fd;
+}
+
+.input3 {
+    border-color: black;
+    border-style: solid;
+    height: 20px;
+    width: 80px;
+    text-align: center;
+    background-color: #e7fdd8;
+}
