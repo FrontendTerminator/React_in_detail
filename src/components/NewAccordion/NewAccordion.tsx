@@ -1,21 +1,8 @@
-import React, {useReducer, useState} from "react";
+import React, {useReducer} from "react";
+import {reducer, TOOGLE_CONSTANT} from "./Reducer";
 
 type AccordionPropsType = {
     titleValue: string
-}
-
-type ActionType = {
-    type: string
-}
-
-const TOOGLE_CONSTANT = "TOOGLE-COLLAPSED"
-
-const reducer = (state: boolean, action: ActionType) => {
-    switch (action.type) {
-        case TOOGLE_CONSTANT:
-            return !state
-    }
-    return state
 }
 
 export function UncontrolledAccordion(props: AccordionPropsType) {
