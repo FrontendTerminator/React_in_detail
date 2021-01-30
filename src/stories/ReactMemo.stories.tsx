@@ -28,7 +28,6 @@ export const Example1 = () => {
 
     const addUser = () => {
         const newUsers = [...users, 'Sveta' + new Date().getTime()]
-        // users.push('Sveta' + new Date().getTime())
         setUsers(newUsers)
     }
 
