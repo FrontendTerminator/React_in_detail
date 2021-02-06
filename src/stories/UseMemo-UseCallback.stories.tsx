@@ -1,7 +1,7 @@
-import React, {useMemo, useState} from "react";
+import React, {useCallback, useMemo, useState} from "react";
 
 export default {
-    title: 'useMemo'
+    title: 'useMemo-useCallback'
 }
 
 export const DifficultCountingExample = () => {
@@ -75,3 +75,42 @@ export const HelpsToReactMemo = () => {
         <Users users={newArray}/>
     </>
 }
+
+export const LikeUseCallbackMemo = () => {
+    console.log("LikeUseCallbackMemo")
+    const [counter, setCounter] = useState(0)
+    const [books, setBooks] = useState(["React", "Js", "CSS", "Html"])
+    // первый вариант
+    const memoizedAddBook = useMemo(() => {
+       return () => {
+           console.log(books)
+           const newBooks = [...books, 'Angular' + new Date().getTime()]
+           setBooks(newBooks)
+       }
+    }, [books])
+    // второй вариант. Разница только в return, тут его не надо писать
+    const memoizedAddBook2 = useCallback(() => {
+        console.log(books)
+        const newBooks = [...books, 'Angular' + new Date().getTime()]
+        setBooks(newBooks)
+    }, [books])
+
+    return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+        {counter}
+        <Book addBook={memoizedAddBook2}/>
+    </>
+}
+
+type BooksSecretPropsType = {
+    addBook: () => void
+}
+
+const BooksSecret = (props: BooksSecretPropsType) => {
+    console.log("BooksSecret")
+    return <div>
+        <button onClick={() => props.addBook()}>add book</button>
+    </div>
+}
+
+const Book = React.memo(BooksSecret)
