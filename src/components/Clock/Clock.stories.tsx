@@ -1,11 +1,14 @@
 import {Clock} from "./Clock";
-import {Clock1} from "./ClockTest";
 
 export default {
     title: 'Clock',
-    component: Clock1
+    component: Clock
 }
 
-export const BaseExample = () => {
-    return <Clock1/>
+export const BaseAnalogExample = () => {
+    return <Clock mode={'analog'}/>
+}
+
+export const BaseDigitalExample = () => {
+    return <Clock mode={'digital'}/>
 }

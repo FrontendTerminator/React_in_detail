@@ -6,7 +6,7 @@ export default {
 
 function generateData () {
     console.log('generateData')
-    return 100000000
+    return 1000
 }
 
 
